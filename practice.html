@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body{
+      font-family: sans-serif;
+      background-color: black;
+      color: white;
+      text-align: center; 
+    }
+    .output{
+      margin-top: 30px;
+    }
+  </style>
+  <title>practice</title>
+</head>
+<body>
+  <h1>Number guessing game</h1>
+  <p>Pick a number between 1 to  10</p>
+  <label>Enter a guess</label>
+
+  <input id="guessfield">
+  <input type="submit" id="submitbutton"><br>
+  <h3 class="output" id="output"></h3>
+
+  <script>
+    const answer = Math.floor(Math.random()*10 + 1)
+    let guesses = 0;
+
+    document.getElementById("submitbutton").onclick = function(){
+      let guess = document.getElementById("guessfield").value
+      guesses +=1;
+
+      if (guess == answer){
+        alert(`${answer} is the number. It took you ${guesses} guesses`)
+      }else if(guess < answer){
+        document.getElementById("output").innerHTML = "A little Bigger";
+      }else if(guess > answer){
+        document.getElementById("output").innerHTML = "A little Smaller";
+      }else if(guess > 10){
+        document.getElementById("output").innerHTML = "Too Large";
+      }
+    }
+    console.log(answer);
+  </script>
+</body>
+</html>
